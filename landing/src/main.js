@@ -2,7 +2,7 @@ import './styles.css';
 
 const business = {
   name: 'Neumaticos Chubut',
-  owner: 'Nombre del dueno',
+  owner: 'Nombre del dueño',
   years: '40',
   whatsapp: 'https://wa.me/5492804000000',
   shopUrl: '#tienda-online',
@@ -38,13 +38,14 @@ document.querySelector('#app').innerHTML = `
       <a href="#marcas">Marcas</a>
       <a href="#contacto">Contacto</a>
     </nav>
+    <a class="header-cta" href="${business.whatsapp}" target="_blank" rel="noreferrer">WhatsApp</a>
   </header>
 
   <main>
     <section class="hero" id="inicio">
       <div class="hero-copy">
         <p class="eyebrow">Gomeria de confianza en Chubut</p>
-        <h1>${business.years} anos cuidando el camino de nuestros clientes.</h1>
+        <h1>${business.years} años cuidando el camino de nuestros clientes.</h1>
         <p>
           Venta de neumaticos, reparaciones, alineacion y balanceo con la atencion cercana
           de un oficio que se gano su lugar trabajando dia a dia.
@@ -58,9 +59,15 @@ document.querySelector('#app').innerHTML = `
         <div class="tire-ring"></div>
         <div class="hero-stat">
           <strong>${business.years}</strong>
-          <span>anos de trayectoria</span>
+          <span>años de trayectoria</span>
         </div>
       </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Valores de atencion">
+      <span>Atencion personalizada</span>
+      <span>Trabajo responsable</span>
+      <span>Clientes y amigos de toda la vida</span>
     </section>
 
     <section class="story section" id="historia">
@@ -69,8 +76,9 @@ document.querySelector('#app').innerHTML = `
         <h2>Un negocio hecho de trabajo, confianza y clientes de toda la vida.</h2>
       </div>
       <div class="story-card">
+        <span class="story-year">Desde hace ${business.years} años</span>
         <p>
-          Hace cuatro decadas, ${business.owner} empezo este camino con una idea sencilla:
+          Hace cuatro decadas, ${business.owner} empezó este camino con una idea sencilla:
           atender bien, resolver rapido y decir siempre la verdad sobre cada cubierta.
         </p>
         <p>
@@ -99,6 +107,10 @@ document.querySelector('#app').innerHTML = `
       <div>
         <p class="eyebrow">Marcas</p>
         <h2>Trabajamos con marcas reconocidas y opciones para cada uso.</h2>
+        <p class="brands-copy">
+          La recomendacion no sale de una lista: sale de escuchar como usas el vehiculo,
+          por donde andas y que necesitas resolver.
+        </p>
       </div>
       <div class="brand-grid">
         ${brands.map((brand) => `<span>${brand}</span>`).join('')}
@@ -142,6 +154,7 @@ document.querySelector('#app').innerHTML = `
       <h3>Contacto</h3>
       <p>${business.address}</p>
       <p>${business.phone}</p>
+      <a href="${business.whatsapp}" target="_blank" rel="noreferrer">WhatsApp</a>
     </div>
   </footer>
 `;

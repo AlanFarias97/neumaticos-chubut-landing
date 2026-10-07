@@ -28,9 +28,9 @@ a {
   position: sticky;
   top: 0;
   z-index: 5;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
   min-height: 76px;
   padding: 0 clamp(18px, 5vw, 72px);
@@ -60,6 +60,7 @@ a {
 .nav {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 22px;
   color: rgba(255, 255, 255, 0.78);
   font-size: 14px;
@@ -68,6 +69,18 @@ a {
 
 .nav a:hover {
   color: #ffffff;
+}
+
+.header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  color: #ffffff;
+  background: #e21b2d;
+  font-size: 14px;
+  font-weight: 900;
 }
 
 .hero {
@@ -117,6 +130,7 @@ h2 {
 .hero p,
 .muted,
 .story-card p,
+.brands-copy,
 .footer p {
   color: rgba(20, 20, 20, 0.68);
   line-height: 1.7;
@@ -169,7 +183,7 @@ h2 {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background:
     linear-gradient(180deg, rgba(8, 8, 8, 0.06), rgba(8, 8, 8, 0.82)),
-    url('/assets/workshop-hero.png') center / cover,
+    url('./assets/workshop-hero.png') center / cover,
     #111111;
 }
 
@@ -217,6 +231,28 @@ h2 {
   text-transform: uppercase;
 }
 
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid #dedede;
+  background: #ffffff;
+}
+
+.trust-strip span {
+  display: grid;
+  place-items: center;
+  min-height: 84px;
+  padding: 18px;
+  border-right: 1px solid #dedede;
+  color: #111111;
+  font-weight: 900;
+  text-align: center;
+}
+
+.trust-strip span:last-child {
+  border-right: 0;
+}
+
 .section {
   padding: clamp(58px, 7vw, 110px) clamp(18px, 5vw, 72px);
 }
@@ -234,6 +270,15 @@ h2 {
   border-left: 8px solid #e21b2d;
   background: #f3f3f3;
   font-size: 18px;
+}
+
+.story-year {
+  display: inline-flex;
+  margin-bottom: 16px;
+  padding: 8px 12px;
+  color: #ffffff;
+  background: #e21b2d;
+  font-weight: 900;
 }
 
 .split {
@@ -275,6 +320,11 @@ h2 {
   grid-template-columns: repeat(6, minmax(0, 1fr));
   gap: 10px;
   margin-top: 34px;
+}
+
+.brands-copy {
+  max-width: 660px;
+  color: rgba(255, 255, 255, 0.66);
 }
 
 .brand-grid span {
@@ -329,7 +379,8 @@ h2 {
   .story,
   .split,
   .contact,
-  .footer {
+  .footer,
+  .trust-strip {
     grid-template-columns: 1fr;
   }
 
@@ -346,6 +397,15 @@ h2 {
   .nav {
     display: grid;
     gap: 10px;
+  }
+
+  .header-cta {
+    justify-self: start;
+  }
+
+  .trust-strip span {
+    border-right: 0;
+    border-bottom: 1px solid #dedede;
   }
 
   .hero {
